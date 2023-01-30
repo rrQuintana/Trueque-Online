@@ -110,7 +110,7 @@ export const Banner = () => {
                   className="tagline text-decoration-none RevisarCV glowing-text"
                 >
                   {" "}
-                  <i class="fa-sharp fa-solid fa-folder m-2"></i> Revisar CV
+                  <i className="fa-sharp fa-solid fa-folder m-2"></i> Revisar CV
                 </a>
                 <br /><br />
                 <div className="d-flex mt-2">
@@ -120,7 +120,7 @@ export const Banner = () => {
                     href="https://www.linkedin.com/in/roberto-quintana-a83644243/"
                     className="m-2 contact-icons linkedin"
                   >
-                    <i class="fa-brands fa-linkedin"></i>
+                    <i className="fa-brands fa-linkedin"></i>
                   </a>
                   <a
                     href="https://github.com/rrQuintana"
@@ -128,7 +128,7 @@ export const Banner = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <i class="fa-brands fa-github"></i>
+                    <i className="fa-brands fa-github"></i>
                   </a>
                 </div>
 

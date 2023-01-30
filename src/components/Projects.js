@@ -40,11 +40,11 @@ export const Projects = () => {
       ),
       imgUrl: projImg1,
       icon: (
-        <div>
+        <>
           <img src={Reacticon} className="icon" alt="reactIcon"></img>
           <img src={Bsicon} className="icon" alt="bootstrapIcon"></img>
           <img src={Firebaseicon} className="icon" alt="firebaseIcon"></img>
-        </div>
+        </>
       ),
     },
     {

@@ -26,6 +26,7 @@ export const Newsletter = () => {
           console.log(error.text);
         }
       );
+      e.target.reset();
   };
 
   return (
@@ -43,13 +44,13 @@ export const Newsletter = () => {
         <h3>¿En qué te puedo ayudar?</h3>
         <h1>Contáctame</h1>
         <p>
-          <i class="fa-solid fa-envelope"></i> rrquintana7@gmail.com
+          <i className="fa-solid fa-envelope"></i> rrquintana7@gmail.com
         </p>
         <p>
-          <i class="fa-solid fa-location-dot"></i> Oaxaca, México.
+          <i className="fa-solid fa-location-dot"></i> Oaxaca, México.
         </p>
         <p className="mb-4">
-          <i class="fa-solid fa-phone"></i> (+52) 951 101 6375
+          <i className="fa-solid fa-phone"></i> (+52) 951 101 6375
         </p>
 
         <div className="d-flex col-6 justify-content-center mb-4">
@@ -59,7 +60,7 @@ export const Newsletter = () => {
             href="https://www.linkedin.com/in/roberto-quintana-a83644243/"
             className="m-2 contact-icons linkedin"
           >
-            <i class="fa-brands fa-linkedin"></i>
+            <i className="fa-brands fa-linkedin"></i>
           </a>
           <a
             href="https://github.com/rrQuintana"
@@ -67,7 +68,7 @@ export const Newsletter = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <i class="fa-brands fa-github"></i>
+            <i className="fa-brands fa-github"></i>
           </a>
         </div>
       </Col>
@@ -82,23 +83,25 @@ export const Newsletter = () => {
         <Row className="Inputs">
           <form ref={form} onSubmit={sendEmail} className="d-felx row">
             <Col xs={12} md={6} xl={6}>
-              <p>Nombre</p>
+              <p>Nombre*</p>
               <input
                 type="text"
                 name="user_name"
                 id="fr-nombre"
                 placeholder="Nombre"
                 className="m-2"
+                required
               />
             </Col>
             <Col xs={12} md={6} xl={6}>
-              <p>Correo</p>
+              <p>Correo*</p>
               <input
-                type="text"
+                type="email"
                 name="user_email"
                 id="fr-correo"
                 placeholder="correo@dominio.com"
                 className="m-2"
+                required
               />
             </Col>
             <Col>
@@ -111,7 +114,7 @@ export const Newsletter = () => {
                 placeholder="Asunto"
                 className="m-2"
               />
-              <p>Mensaje</p>
+              <p>Mensaje*</p>
               <textarea
                 type="text"
                 rows="2"
@@ -119,6 +122,7 @@ export const Newsletter = () => {
                 id="fr-mensaje"
                 placeholder="Mensaje"
                 className="m-2 mensaje"
+                required
               />
 
               {enviado ? (
