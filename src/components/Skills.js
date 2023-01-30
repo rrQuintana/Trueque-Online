@@ -39,7 +39,7 @@ export const Skills = () => {
                 <Col xs={12} md={5} xl={5}>
                 <h4 className=" text-start">Desarrollo Back End</h4>
                   <p className=" text-start">
-                    - NodeJS <br />
+                    - Node js <br />
                     - Firebase <br />
                     - Bases de datos SQL <br />
                     - Php 
