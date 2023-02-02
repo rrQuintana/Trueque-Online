@@ -516,6 +516,47 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   }
 }
 
+/************ Services Css ************/
+.serrvices{
+  text-align: center;
+  color: #ffffff;
+  padding-top: 50px;
+  padding-bottom: 50px; 
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+.service-bx{ 
+  display: flex;
+  flex-wrap: wrap ;
+  width: 300px;
+  margin-bottom: 4px;
+  background: #181818; 
+  margin: 10px;
+  border-bottom: 10px solid #181818 ;
+  padding-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+} 
+.service-bx i{ 
+  font-size: 3em;
+  margin: 30px; 
+}
+.service-bx h4, i{ 
+  text-align: center;   
+}
+.service-bx-p{
+  font-size: 10em;
+}
+.service-bx:hover{ 
+  border-bottom: 10px solid #AA367C ;
+}
+.service-bx:hover i{ 
+  color: #AA367C ;
+}
+
+
 /************ Projects Css ************/
 .project {
   padding: 80px 0;
@@ -529,10 +570,10 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 .project p {
   color: #B8B8B8;
-  font-size: 18px;
+  font-size: 15px;
   margin: 0px auto 0px auto;
   text-align: center;
-  width: 56%;
+  width: 90%;
 }
 .project .nav.nav-pills {
   width: 60%;

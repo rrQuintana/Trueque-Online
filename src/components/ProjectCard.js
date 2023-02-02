@@ -12,7 +12,7 @@ export const ProjectCard = ({ title, description, demoLink, imgUrl, icon }) => {
         </div>
         {}
       </div>
-      <div className="mb-4">
+      <div className="mb-4 text-center">
         <p className="mt-3">Creado con:</p>
         {icon}
       </div>

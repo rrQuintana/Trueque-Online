@@ -1,5 +1,6 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
+import Services from "./Services";
 import { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -114,7 +115,8 @@ export const Projects = () => {
   return (
     <section className="project" id="projects">
       <Container>
-        <Row>
+        <Services></Services> <br/>
+        <Row>          
           <Col size={12} data-aos="fade-up">
             <div>
               <h2>Proyectos</h2>
