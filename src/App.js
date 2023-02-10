@@ -1,26 +1,25 @@
 import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { AuthProvider } from "./AuthContext";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Banner } from "./components/Banner";
-import { Skills } from "./components/Skills";
-import { Projects } from "./components/Projects";
-import { Footer } from "./components/Footer";
+import LandingPage from "./components/LandingPage/LandingPage";
+import Products from "./components/Products/Products";
+import Profile from "./components/Profile/Profile";
 
 function App() {
-  document.addEventListener(
-    "contextmenu",
-    function (event) {
-      event.preventDefault();
-    },
-    false
-  );
   return (
     <div className="App">
-      <Banner />
-
-      <Skills />
-
-      <Projects />
-      <Footer />
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/productos" element={<Products />} />
+            <Route path="/inicio" element={<LandingPage />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="*" element={<LandingPage />} />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
