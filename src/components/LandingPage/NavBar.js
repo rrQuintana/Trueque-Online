@@ -2,13 +2,19 @@ import React, { useState, useEffect, useContext } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import logo from "../../assets/img/SVG/Logo.svg";
 import { Link } from "react-router-dom";
-import { auth, provider } from "../firebase.config";
-import { getAuth, signInWithPopup, GoogleAuthProvider,signOut } from "firebase/auth";
 import { AuthContext } from "../../AuthContext";
-
+import {
+  getAuth,
+  signOut,
+} from "firebase/auth";
 
 export const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const { isAuthenticated } = useContext(AuthContext);
+  const { setIsAuthenticated } = useContext(AuthContext);
+  const { isUser } = useContext(AuthContext);
+  const { setUser } = useContext(AuthContext);
+  const auth = getAuth();
 
   useEffect(() => {
     const onScroll = () => {
@@ -24,47 +30,12 @@ export const NavBar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  //Proceso de login con Google
-  const auth = getAuth();
-  const { setIsAuthenticated } = useContext(AuthContext);
-  const { setUser } = useContext(AuthContext);
-
-  const logIn = () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        // IdP data available using getAdditionalUserInfo(result)
-        // ...
-        setIsAuthenticated(true);
-        setUser(user);
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
-      });
-  };
-
   //Proceso de cierre de seción con Google
   const logOut = () => {
     setIsAuthenticated(false);
-    signOut(auth)
+    signOut(auth);
     setUser(null);
-  }
-
-  //Revisar si el usuario está autenticado
-  const { isAuthenticated } = useContext(AuthContext);
-  const { isUser } = useContext(AuthContext);
-  
+  };
 
   return (
     <Navbar expand="lg" className={scrolled ? "scrolled" : ""}>
@@ -82,21 +53,20 @@ export const NavBar = () => {
             </Link>
             <Link to="/productos" className="active navbar-link">
               Productos
-            </Link>
+            </Link>            
             {!isAuthenticated ? (
-              <Link onClick={logIn} className="active navbar-link">
-                Iniciar con Google
-              </Link>
+              <Link to="/login" className="active navbar-link">
+              Log in
+            </Link>
             ) : (
               <>
                 <Link to="/profile" className="active navbar-link">
                   Perfil
                 </Link>
-                <Link onClick={logOut} className="active navbar-link">
+                <Link onClick={logOut} to="/" className="active navbar-link">
                   Sign Out
                 </Link>
               </>
-              
             )}
           </Nav>
         </Navbar.Collapse>

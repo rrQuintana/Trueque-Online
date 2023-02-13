@@ -113,6 +113,7 @@ export const Newsletter = () => {
                 id="fr-mensaje"
                 placeholder="Asunto"
                 className="m-2"
+                style={{width: '100%'}}
               />
               <p>Mensaje*</p>
               <textarea

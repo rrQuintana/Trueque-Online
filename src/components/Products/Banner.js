@@ -6,32 +6,13 @@ import "aos/dist/aos.css";
 import "./Products.css";
 
 export const Banner = () => {
-  // Define the text to be typed and the initial state of the text
-  const Name = "Conoce más";
-  const [typedName, setTypedName] = useState("");
-
-  useEffect(() => {
-    // Use an interval to update the typed text every 200 milliseconds
-    const typingInterval = setInterval(() => {
-      // If all the text has been typed, clear the interval
-      if (typedName === Name) {
-        clearInterval(typingInterval);
-      } else {
-        // Add the next character to the typed text
-        setTypedName(typedName + Name[typedName.length]);
-      }
-    }, 150);
-
-    // Clear the interval when the component is unmounted
-    return () => clearInterval(typingInterval);
-  }, [typedName]);
 
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = ["Intercambia", "Ahorra", "Recicla"];
+  const toRotate = ["Intercambia", "Ahorra", "Recicla", "Cambia", "Adquiere", "Ofrece", "Encuentra"];
   const period = 1000;
 
   useEffect(() => {
@@ -65,7 +46,7 @@ export const Banner = () => {
       setIsDeleting(false);
       setLoopNum(loopNum + 1);
       setIndex(1);
-      setDelta(500);
+      setDelta(100);
     } else {
       setIndex((prevIndex) => prevIndex + 1);
     }
@@ -90,7 +71,7 @@ export const Banner = () => {
               <h2>
                 <span
                   className="txt-rotate size"
-                  data-rotate='[ "Intercambia", "Ahorra", "Recicla" ]'
+                  data-rotate='[ "Intercambia", "Ahorra", "Recicla", "Cambia", "Adquiere", "Ofrece", "Encuentra" ]'
                 >
                   <span className="wrap text-dark">{text}</span>
                 </span>

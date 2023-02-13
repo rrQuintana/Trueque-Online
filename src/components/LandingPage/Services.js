@@ -11,7 +11,7 @@ function Services() {
       <div className="d-flex m-3 flex-wrap justify-content-center align-items-center">
         <div className="service-bx">
           <p>
-            <i class="fa-solid fa-user"></i>
+            <i className="fa-solid fa-user"></i>
           </p>
           <h4>Cuentas de Usuario</h4>
           <p className="service-bx-p">
@@ -21,7 +21,7 @@ function Services() {
         </div>
         <div className="service-bx">
           <p>
-            <i class="fa-solid fa-handshake"></i>
+            <i className="fa-solid fa-handshake"></i>
           </p>
           <h4>Intercambia o vende</h4>
           <p className="service-bx-p">
@@ -31,7 +31,7 @@ function Services() {
         </div>
         <div className="service-bx">
           <p>
-            <i class="fa-solid fa-star"></i>
+            <i className="fa-solid fa-star"></i>
           </p>
           <h4>Califica</h4>
           <p className="service-bx-p">
@@ -41,7 +41,7 @@ function Services() {
         </div>
         <div className="service-bx">
           <p>
-            <i class="fa-solid fa-ban"></i>
+            <i className="fa-solid fa-ban"></i>
           </p>
           <h4>Reporta</h4>
           <p className="service-bx-p">
@@ -51,7 +51,7 @@ function Services() {
         </div>
         <div className="service-bx">
           <p>
-            <i class="fa-solid fa-eye"></i>
+            <i className="fa-solid fa-eye"></i>
           </p>
           <h4>Navega</h4>
           <p className="service-bx-p">
@@ -61,7 +61,7 @@ function Services() {
         </div>
         <div className="service-bx">
           <p>
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i className="fa-solid fa-magnifying-glass"></i>
           </p>
           <h4>Busca</h4>
           <p className="service-bx-p">
