@@ -41,16 +41,16 @@ export const Newsletter = () => {
         data-aos="fade-left"
         className="d-flex row justify-content-center align-content-center"
       >
-        <h3>¿En qué te puedo ayudar?</h3>
-        <h1>Contáctame</h1>
+        <h3>¿En qué te podemos ayudar?</h3>
+        <h1>Contáctanos</h1>
         <p>
-          <i className="fa-solid fa-envelope"></i> rrquintana7@gmail.com
+          <i className="fa-solid fa-envelope"></i> correo@mail.com
         </p>
         <p>
           <i className="fa-solid fa-location-dot"></i> Oaxaca, México.
         </p>
         <p className="mb-4">
-          <i className="fa-solid fa-phone"></i> (+52) 951 101 6375
+          <i className="fa-solid fa-phone"></i> (+52) 555 555 5555
         </p>
 
         <div className="d-flex col-6 justify-content-center mb-4">
@@ -113,6 +113,7 @@ export const Newsletter = () => {
                 id="fr-mensaje"
                 placeholder="Asunto"
                 className="m-2"
+                style={{width: '100%'}}
               />
               <p>Mensaje*</p>
               <textarea

@@ -1,7 +1,6 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Col } from "react-bootstrap";
 import { Newsletter } from "./Newsletter";
-import React, { useState } from "react";
-import logo from "../assets/img/SVG/Logo.svg";
+import logo from "../../assets/img/SVG/Logo.svg";
 
 export const Footer = () => {
   return (
@@ -14,10 +13,13 @@ export const Footer = () => {
           className="mt-4 d-flex justify-content-between align-items-center"
         >
           <img src={logo} alt="Logo" className="LogoIconFooter" />
-          <p>Roberto Quintana - All Rights Reserved 2023 </p>
+          <p>NOMBRE$DE$LA$PAGINA - All Rights Reserved 2023 </p>
         </Col>
       </Container>
       
     </footer>
   );
 };
+
+
+

@@ -35,12 +35,13 @@ export const AboutMe = () => {
             <h3>{typedText}</h3>
             <br />
             <p className="Jsutificado">
-              Hola, soy Roberto Quintana, estudiante de Ingeniería en Software
-              en la Universidad La Salle Oaxaca, tengo experiencia en el
-              desarrollo web y no solo tengo gusto en áreas de TI sino también
-              en el Marketing digital y Diseño gráfico, me gusta poner en
-              práctica mis habilidades y aumentar mi conocimiento haciendo lo
-              que me gusta.
+              Bienvenido a nuestra página de trueques estudiantiles, donde los
+              estudiantes pueden compartir y obtener recursos de manera
+              eficiente y económica. Aquí, podrás intercambiar libros,
+              herramientas, y otros artículos útiles para tus estudios con tus
+              compañeros de clase y construir una comunidad más colaborativa y
+              sostenible. Únete a nosotros y descubre la belleza de la economía
+              compartida en el ámbito estudiantil.
             </p>
           </Col>
         </div>
