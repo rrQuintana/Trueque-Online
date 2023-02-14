@@ -1,11 +1,10 @@
 import React from "react";
-import { Col } from "react-bootstrap";
 
 function Services() {
   return (
     <div
       data-aos="fade-in"
-      className="container d-flex row serrvices justify-content-center align-items-center"
+      className="container d-flex row serrvices justify-content-center align-items-center mb-5"
     >
       <h1>Servicios</h1>
       <div className="d-flex m-3 flex-wrap justify-content-center align-items-center">
@@ -62,7 +61,7 @@ function Services() {
           <i class="fa-solid fa-gauge-high"></i>
           </p>
           <h4>Optimización</h4>
-          <p className="service-bx-p">
+          <p className="service-bx-p" >
             Para que un sitio web sea de calidad tiene que ser rápido, esto ayuda a retener clientes en tu sitio. 
           </p>
         </div>

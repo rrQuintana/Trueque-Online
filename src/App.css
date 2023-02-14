@@ -100,7 +100,7 @@ nav.navbar {
   transition:  0.32s ease-in-out;
 }
 nav.navbar.scrolled {
-  padding: 0px 0;
+  padding: 0px 0px 0px 0px;
   background-color: #121212;
 }
 nav.navbar a.navbar-brand {

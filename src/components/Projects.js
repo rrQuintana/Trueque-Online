@@ -9,6 +9,7 @@ import projImg2 from "../assets/img/project-img2.png";
 import projImg3 from "../assets/img/project-img3.png";
 import projImg4 from "../assets/img/project-img4.png";
 import projImg5 from "../assets/img/project-img5.png";
+import projImg6 from "../assets/img/project-img6.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import "animate.css";
 import Reacticon from "../assets/img/SVG/react-icon.svg";
@@ -72,6 +73,30 @@ export const Projects = () => {
         </div>
       ),
     },
+    {
+      title: "Agencia Marketing",
+      description:
+        "Proyecto front end dedicado a la creción de una Landing Page para una agencia digital",
+      demoLink: (
+        <h5>
+          <a
+            href="https://sionix-digital.web.app/"
+            target="_blank"
+            className="text-light"
+          >
+            Demo
+          </a>
+        </h5>
+      ),
+      imgUrl: projImg6,
+      icon: (
+        <div>
+          <img src={Reacticon} className="icon" alt="reactIcon"></img>
+          <img src={Bsicon} className="icon" alt="bootstrapIcon"></img>
+          <img src={Firebaseicon} className="icon" alt="firebaseIcon"></img>
+        </div>
+      ),
+    }
   ];
   const designs = [
     {
@@ -113,11 +138,11 @@ export const Projects = () => {
   ];
 
   return (
-    <section className="project" id="projects">
+    <section className="project mt-5" >
       <Container>
         <Services></Services> <br/>
-        <Row>          
-          <Col size={12} data-aos="fade-up">
+        <Row id="projects">           
+          <Col size={12} data-aos="fade-up" >
             <div>
               <h2>Proyectos</h2>
               <p>Mi mejor carta de presentación es mi trabajo.</p>

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { ArrowRightCircle } from "react-bootstrap-icons";
-import "animate.css";
 import { NavBar } from "./NavBar";
+import "animate.css";
 import "aos/dist/aos.css";
 
 export const Banner = () => {
