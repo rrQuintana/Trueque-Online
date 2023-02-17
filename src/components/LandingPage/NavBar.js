@@ -9,13 +9,21 @@ import {
 } from "firebase/auth";
 
 export const NavBar = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const { isAuthenticated } = useContext(AuthContext);
-  const { setIsAuthenticated } = useContext(AuthContext);
-  const { isUser } = useContext(AuthContext);
-  const { setUser } = useContext(AuthContext);
+  const [scrolled, setScrolled] = useState(false); //Saber si se escroleó la página para cambiar el estilo del navbar
+  const { isAuthenticated } = useContext(AuthContext); //Saber de forma global si hay un usuario autenticado
+  const { setIsAuthenticated } = useContext(AuthContext); //Establecer si un usuario está autenticado
+  const { isUser } = useContext(AuthContext);  //Obtener el objeto usuario
+  const { setUser } = useContext(AuthContext); //Establecer el objeto usuario
   const auth = getAuth();
 
+  //Proceso de cierre de seción con Google
+  const logOut = () => {
+    setIsAuthenticated(false);
+    signOut(auth);
+    setUser(null);
+  };
+
+  //Saber si se hizo scroll a la pagina para cambiar el estilo del nav
   useEffect(() => {
     const onScroll = () => {
       if (window.scrollY > 50) {
@@ -26,16 +34,10 @@ export const NavBar = () => {
     };
 
     window.addEventListener("scroll", onScroll);
-
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  //Proceso de cierre de seción con Google
-  const logOut = () => {
-    setIsAuthenticated(false);
-    signOut(auth);
-    setUser(null);
-  };
+  
 
   return (
     <Navbar expand="lg" className={scrolled ? "scrolled" : ""}>

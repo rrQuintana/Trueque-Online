@@ -16,3 +16,6 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
+//Este contexto se usa para saber de forma global si hay un usuario autenticado y para establecer si un usuario está autenticado. 
+//También se usa para obtener el objeto usuario y para establecer el objeto usuario.

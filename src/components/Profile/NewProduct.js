@@ -4,6 +4,8 @@ import { db } from "../firebase.config";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 
 function NewProduct() {
+
+  //Funcion para guardar datos en la base de datos
   async function Guardar() {
     try {
       const docRef = await addDoc(collection(db, "productos"), {
@@ -18,6 +20,7 @@ function NewProduct() {
     }
   }
 
+  //Funcion para listar los datos de la base de datos
   async function Listar() {
     const querySnapshot = await getDocs(collection(db, "productos"));
     querySnapshot.forEach((doc) => {

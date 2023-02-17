@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 import './Profile.css'
 
 function Profile() {
+
   const { isAuthenticated } = useContext(AuthContext); //Saber si el usuario está autenticado
   const { isUser } = useContext(AuthContext); //Obtener los datos del usuario
-  console.log(isUser);
 
   return (
     <div>

@@ -11,14 +11,16 @@ import {
 import { AuthContext } from "../../AuthContext";
 
 function Login() {
-  const [registro, setRegistro] = useState(false);
-  //Proceso de login con Google
+  const [registro, setRegistro] = useState(false); //Manejadores de estado para registrar o logear
+
+  //Data de login con Google
   const auth = getAuth();
   const { setIsAuthenticated } = useContext(AuthContext);
   const { setUser } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
+  //Login con google
   const logIn = () => {
     signInWithPopup(auth, provider)
       .then((result) => {

@@ -7,6 +7,7 @@ import "./Products.css";
 
 export const Banner = () => {
 
+  //Funciones para animar texto
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");

@@ -3,6 +3,8 @@ import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 export const Newsletter = () => {
+
+  // Funciones para enviar un correo en el formulario de contacto
   const [enviado, setEnviado] = useState(false);
 
   const form = useRef();

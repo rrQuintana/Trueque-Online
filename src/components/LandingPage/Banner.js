@@ -7,6 +7,7 @@ import "aos/dist/aos.css";
 
 export const Banner = () => {
 
+  //Todas estas funciones son para dar algunas animaciones al texto
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");
