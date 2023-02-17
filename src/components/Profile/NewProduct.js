@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { NavBar } from "../LandingPage/NavBar";
 import { db } from "../firebase.config";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc, query, getDocs } from "firebase/firestore";
 
 function NewProduct() {
-
   //Funcion para guardar datos en la base de datos
   async function Guardar() {
     try {
@@ -20,14 +19,7 @@ function NewProduct() {
     }
   }
 
-  //Funcion para listar los datos de la base de datos
-  async function Listar() {
-    const querySnapshot = await getDocs(collection(db, "productos"));
-    querySnapshot.forEach((doc) => {
-      let data = doc.data();
-      console.log(`${doc.id} => ${data}`);
-    });
-  }
+  
 
   return (
     <div>
@@ -74,9 +66,6 @@ function NewProduct() {
         </div>
         <button className="btn btn-primary" onClick={Guardar}>
           Guardar
-        </button>
-        <button className="btn btn-primary" onClick={Listar}>
-          Listar
         </button>
       </div>
     </div>
