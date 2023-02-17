@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavBar } from "../LandingPage/NavBar";
 import { db } from "../firebase.config";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 
 function NewProduct() {
   async function Guardar() {
@@ -16,6 +16,14 @@ function NewProduct() {
     } catch (e) {
       console.error("Error adding document: ", e);
     }
+  }
+
+  async function Listar() {
+    const querySnapshot = await getDocs(collection(db, "productos"));
+    querySnapshot.forEach((doc) => {
+      let data = doc.data();
+      console.log(`${doc.id} => ${data}`);
+    });
   }
 
   return (
@@ -54,16 +62,19 @@ function NewProduct() {
         <br />
 
         <div className="input-group mb-3">
-          <label className="input-group-text">
-            Options
-          </label>
+          <label className="input-group-text">Options</label>
           <select className="form-select" id="new-product-request">
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
           </select>
         </div>
-        <button className="btn btn-primary" onClick={Guardar}>Button</button>
+        <button className="btn btn-primary" onClick={Guardar}>
+          Guardar
+        </button>
+        <button className="btn btn-primary" onClick={Listar}>
+          Listar
+        </button>
       </div>
     </div>
   );

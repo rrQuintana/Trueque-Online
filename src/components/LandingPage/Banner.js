@@ -46,7 +46,7 @@ export const Banner = () => {
       setIsDeleting(false);
       setLoopNum(loopNum + 1);
       setIndex(1);
-      setDelta(500);
+      setDelta(100);
     } else {
       setIndex((prevIndex) => prevIndex + 1);
     }
@@ -77,18 +77,6 @@ export const Banner = () => {
             </div>
             <div data-aos="fade-right">
               <h2 className="text-black">El futuro es el trueque, únete a nosotros hoy</h2>
-              <br />
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href="#"
-                className="tagline text-decoration-none RevisarCV glowing-text"
-              >
-                {" "}
-                <i className="fa-sharp fa-solid fa-folder m-2 text-black">
-                  Ir a intercambios
-                </i>
-              </a>
             </div>
           </div>
         </Container>
