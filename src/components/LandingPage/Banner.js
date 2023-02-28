@@ -66,7 +66,7 @@ export const Banner = () => {
         >
           <div className="Letras w-100" id="Banner-Text">
             <div data-aos="fade-right ">
-              <h1 className="text-black">NOMBRE$DE$LA$PAGINA</h1>
+              <h1 className="text-black">Xchange Life</h1>
               <h1>
                 <span
                   className="txt-rotate size text-black"

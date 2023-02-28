@@ -12,6 +12,8 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { AuthContext } from "../../AuthContext";
+import { db } from "../firebase.config";
+import { collection, addDoc, query, getDocs } from "firebase/firestore";
 
 function Login() {
   const [registro, setRegistro] = useState(true); //Manejadores de estado para registrar o logear
@@ -29,7 +31,7 @@ function Login() {
       .then((result) => {
         // The signed-in user info.
         const user = result.user;
-        console.log(user);
+
         setIsAuthenticated(true);
         setUser(user);
         navigate("/");
@@ -40,8 +42,6 @@ function Login() {
         const errorMessage = error.message;
         // The email of the user's account used.
         const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
       });
   };
 
@@ -54,15 +54,30 @@ function Login() {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+
+        //Guardar datos del usuario para registrarlos en la base de datos
+        const NoUsuario = user.uid;
+        const Correo = email;
+        const NombreUsuario = document.getElementById("NombreUsuario").value;
+        const TelefonoUsuario = document.getElementById("TelefonoUsuario").value;
+        const Contacto = "Sin asignar";
+
+        //Guardar los datos del usuario en la base de datos
+        RegistrarDatos(NoUsuario, Correo, NombreUsuario, TelefonoUsuario, Contacto);
+
+        //Alerta de registro exitoso
         window.alert(user.email + " registrado con exito");
+
+        //Limpiar los inputs
         document.getElementById("email").value = "";
         document.getElementById("password").value = "";
+
         setRegistro(!registro);
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
-        // ..
+        window.alert("Error en el registro", errorMessage);
+        console.error("Error en el registro", errorMessage);
       });
   }
 
@@ -81,9 +96,25 @@ function Login() {
         navigate("/");
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
+        console.error("Error en Login", errorMessage);
       });
+  }
+
+  //Funcion para registrar datos en la base de datos
+  async function RegistrarDatos(NoUsuario, Correo, NombreUsuario, TelefonoUsuario, Contacto) {
+    try {
+      const docRef = await addDoc(collection(db, "usuarios"), {
+        Usuario: NoUsuario,
+        Nombre: NombreUsuario,
+        Telefono: TelefonoUsuario,
+        Correo: Correo,
+        Contacto: Contacto,
+      });
+    } catch (e) {
+      console.error("Error adding document: ", e);
+      console.log(e.message);
+    }
   }
 
   return (
@@ -91,7 +122,6 @@ function Login() {
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
-        height: "100vh",
         padding: "2rem",
       }}
     >
@@ -104,7 +134,15 @@ function Login() {
             >
               <div className="d-flex">
                 <h1 className="text-black ms-3">Xchange Life</h1>
-                <a href="#" className="m-auto me-5 text-secondary" onClick={()=>{navigate("/");}}>Regresar</a>
+                <a
+                  href="#"
+                  className="m-auto me-5 text-secondary"
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                >
+                  Regresar
+                </a>
               </div>
 
               <br />
@@ -114,8 +152,31 @@ function Login() {
                 <h2 className="text-black my-3">Sign in</h2>
               )}
               <Form>
+                {!registro && (
+                  <>
+                    <Form.Group>
+                      <h5 className="text-secondary mt-4">Nombre*</h5>
+                      <Form.Control
+                        type="text"
+                        placeholder="Enter name"
+                        id="NombreUsuario"
+                        required
+                      />
+                    </Form.Group>
+
+                    <Form.Group>
+                      <h5 className="text-secondary mt-4">Teléfono</h5>
+                      <Form.Control
+                        type="text"
+                        placeholder="Enter phone"
+                        id="TelefonoUsuario"
+                      />
+                    </Form.Group>
+                  </>
+                )}
+
                 <Form.Group>
-                  <h5 className="text-secondary">Correo</h5>
+                  <h5 className="text-secondary mt-4">Correo*</h5>
                   <Form.Control
                     type="email"
                     placeholder="Enter email"
@@ -125,7 +186,7 @@ function Login() {
                 </Form.Group>
 
                 <Form.Group>
-                  <h5 className="text-secondary mt-4">Contraseña</h5>
+                  <h5 className="text-secondary mt-4">Contraseña*</h5>
                   <Form.Control
                     type="password"
                     placeholder="Password"
@@ -137,7 +198,11 @@ function Login() {
                 <div className="d-flex d-flex row justify-content-center align-items-center">
                   {registro ? (
                     <>
-                      <Button variant="primary" className="mt-3" onClick={Ingresar}>
+                      <Button
+                        variant="primary"
+                        className="mt-4 py-2 w-50"
+                        onClick={Ingresar}
+                      >
                         Ingresar
                       </Button>
                       <p className="text-secondary mt-3 d-flex justify-content-center align-items-center">
@@ -155,7 +220,11 @@ function Login() {
                     </>
                   ) : (
                     <>
-                      <Button variant="primary" className="mt-3" onClick={Registrar}>
+                      <Button
+                        variant="primary"
+                        className="mt-4 py-2 w-50"
+                        onClick={Registrar}
+                      >
                         Registrar
                       </Button>
                       <p className="text-secondary mt-3 d-flex justify-content-center align-items-center">

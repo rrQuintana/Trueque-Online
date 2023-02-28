@@ -103,7 +103,7 @@ nav.navbar.scrolled {
   background-color: #121212;
 }
 nav.navbar a.navbar-brand {
-    width: 9%;
+    width: 12%;
 }
 nav.navbar .navbar-link {
   font-weight: 400;
@@ -112,6 +112,12 @@ nav.navbar .navbar-link {
   padding: 0 25px;
   font-size: 18px;
   text-decoration: none;
+}
+nav .LogoIcon{
+  filter: invert(1) !important;
+}
+nav.navbar.scrolled .LogoIcon{
+  filter: invert(0) !important;
 }
 nav.navbar.scrolled .navbar-link {
   font-weight: 400;
@@ -139,8 +145,7 @@ span.navbar-text {
   margin: 10px;
 }
 .LogoIcon{
-  width: 20px;
-  margin: 10px;
+  width: 40px;
 }
 .espacios{
   padding-top: 80px;  
@@ -404,6 +409,7 @@ background: linear-gradient(0deg, rgba(15,20,105,1) 0%, rgba(70,114,209,1) 100%)
 .LogoIconFooter{
   height: 30px;
   box-sizing: border-box;
+  filter: invert(2);
 }
 .footer p {
   font-weight: 400;

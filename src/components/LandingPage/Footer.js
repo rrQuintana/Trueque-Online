@@ -13,7 +13,7 @@ export const Footer = () => {
           className="mt-4 d-flex justify-content-between align-items-center"
         >
           <img src={logo} alt="Logo" className="LogoIconFooter" />
-          <p>NOMBRE$DE$LA$PAGINA - All Rights Reserved 2023 </p>
+          <p className="text-dark">Xchange Life - All Rights Reserved 2023 </p>
         </Col>
       </Container>
       
